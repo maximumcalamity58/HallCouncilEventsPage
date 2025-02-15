@@ -14,7 +14,7 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100vw;
-    min-height: 100vh; /* Ensures it fits the full screen */
+    min-height: 100dvh; /* Ensures it fits the full screen */
     overflow: hidden; /* Prevents page scrolling */
     touch-action: none; /* Stops overscroll bounce on mobile */
     display: flex;
@@ -31,7 +31,7 @@ html, body {
     grid-template-rows: repeat(2, 1fr);
     gap: 2.5vw;
     width: 95vw;
-    height: 95vh;
+    height: 95dvh;
     overflow: hidden; /* Prevents inner scrolling */
 }
 
@@ -350,7 +350,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
