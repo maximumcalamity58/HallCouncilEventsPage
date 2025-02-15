@@ -9,22 +9,28 @@
     box-sizing: border-box;
 }
 
-body {
+/* Prevent scrolling and ensure full viewport height */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh; /* Ensures it fits the full screen */
+    overflow: hidden; /* Prevents page scrolling */
+    touch-action: none; /* Stops overscroll bounce on mobile */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f5f4df;
-    overflow: hidden;
+    flex-direction: column;
 }
 
+/* Ensure container fills the viewport properly */
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 2.5vw; /* Spacing between boxes */
+    gap: 2.5vw;
     width: 95vw;
     height: 95vh;
+    max-height: 95vh;
+    overflow: hidden; /* Prevents inner scrolling */
 }
 
 .box {
