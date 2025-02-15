@@ -18,6 +18,9 @@ html, body {
     overflow: hidden; /* Prevents page scrolling */
     touch-action: none; /* Stops overscroll bounce on mobile */
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f4df;
     flex-direction: column;
 }
 
@@ -29,7 +32,6 @@ html, body {
     gap: 2.5vw;
     width: 95vw;
     height: 95vh;
-    max-height: 95vh;
     overflow: hidden; /* Prevents inner scrolling */
 }
 
