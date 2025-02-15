@@ -1,0 +1,395 @@
+@font-face {
+    font-family: 'Chewy';
+    src: url('/fonts/Chewy-Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f4df;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2.5vw; /* Spacing between boxes */
+    width: 95vw;
+    height: 95vh;
+}
+
+.box {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Box 1 Special Styling */
+.box1 {
+    cursor: pointer;
+    font-family: 'Chewy', sans-serif;
+    position: relative;
+    background-color: #afe3e3;
+}
+
+/* February Text */
+.box1 .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    -webkit-text-stroke: 2px black; /* Black outline */
+    z-index: 2;
+}
+
+/* Snow Layer at the Bottom */
+.box1::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Height of the snow layer */
+    background-image: url('/img/snow.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 1;
+}
+
+/* SVG Placement */
+.svg-container {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    pointer-events: none;
+}
+
+/* Box 2 Styling */
+.box2 {
+    cursor: pointer;
+    position: relative;
+    font-family: 'Chewy', sans-serif;
+    overflow: hidden;
+    background-color: #5ea95e;
+}
+
+/* March Text */
+.box2 .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    -webkit-text-stroke: 2px black; /* Black outline */
+    z-index: 2;
+}
+
+/* Rainbow Background */
+.box2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/img/rainbow.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Coins Placement */
+.box2 .svg-container {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    pointer-events: none;
+}
+
+/* Box 3 Styling */
+.box3 {
+    cursor: pointer;
+    position: relative;
+    font-family: 'Chewy', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(to bottom,
+        #5f7380 0%,   /* Lightened grayish-blue (top) */
+        #6b7d8a 40%,  /* Slightly brighter blue-gray */
+        #5f7380 80%,  /* Repeating for depth */
+        #4e5f6a 100%  /* Soft, muted dark gray */
+    );
+}
+
+.box3 .text {
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    -webkit-text-stroke: 2px black; /* Black outline */
+    z-index: 2;
+}
+
+
+
+/* Snow Layer at the Bottom */
+.box3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Height of the grass */
+    background-image: url('/img/grass.svg');
+    background-repeat: repeat;
+    background-position: bottom;
+    z-index: 1;
+}
+
+/* Adjust the rain container so it starts from the clouds */
+.rain-container {
+    position: absolute;
+    width: 100%;
+    height: 140%; /* Make rain fall from the last 20% of box height */
+    top: 10%; /* Start rain from cloud height */
+    left: 0;
+    pointer-events: none;
+}
+
+
+.raindrop {
+    position: absolute;
+    width: 4px;
+    height: 10px;
+    background-color: rgba(0, 0, 255, 0.7);
+    border-radius: 2px;
+    opacity: 0;
+    animation: fall linear infinite;
+}
+
+/* Cloud Container - Positioned at the Top */
+.cloud-container {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Shadow Cloud - Acts as an outline */
+.shadow-puff {
+    position: absolute;
+    background-color: black; !important; /* Black outline */
+    border-radius: 50%;
+    opacity: 1;
+}
+
+/* Puffs Inside the Cloud Mass */
+.puff {
+    position: absolute;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Rain Animation */
+@keyframes fall {
+    from {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(4000%);
+        opacity: 0;
+    }
+}
+
+/* Box 4 Styling */
+.box4 {
+    cursor: pointer;
+    position: relative;
+    font-family: 'Chewy', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(0, oklab(77% 0.127 0.048), oklab(97.2% -0.035 0.116))
+}
+
+.box4 .text {
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    -webkit-text-stroke: 2px black; /* Black outline */
+    z-index: 2;
+}
+
+/* Flower Container */
+.flower-container {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+/* Individual Flower */
+.flower {
+    position: absolute;
+    width: 80px;
+    height: auto;
+}
+
+/* Flying Creatures Container */
+.creature-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Bees Flying Horizontally */
+.bee {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    animation: fly-across linear infinite;
+    transform-origin: center;
+}
+
+/* Butterflies Fly in a More Natural Randomized Wavy Pattern */
+.butterfly {
+    position: absolute;
+    width: 35px;
+    height: auto;
+    transform-origin: center;
+}
+
+/* Bee Animation */
+@keyframes fly-across {
+    0% {
+        left: -40%;
+        transform: rotate(90deg);
+    }
+    100% {
+        left: 140%;
+        transform: rotate(90deg);
+    }
+}
+
+/* Butterfly Animation - Smooth Random Wavy Path */
+/*noinspection ALL*/
+@keyframes fly-wavy {
+    0% {
+        left: -40%;
+        transform: rotate(90deg);
+    }
+    25% {
+        top: calc(40% + var(--wave1));
+        transform: rotate(70deg);
+    }
+    50% {
+        top: calc(50% + var(--wave2));
+        transform: rotate(110deg);
+    }
+    75% {
+        top: calc(45% + var(--wave3));
+        transform: rotate(85deg);
+    }
+    100% {
+        left: 140%;
+        transform: rotate(90deg);
+    }
+}
+
+/* Animation */
+.animate-in {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Modal Background */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Darkened Background Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    z-index: 999;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    max-width: 90vw;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    border: 4px solid black;
+}
+
+/* Modal Image */
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures image fills the modal */
+    border-radius: 15px;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    -webkit-text-stroke: 1px black; /* Black outline */
+    z-index: 1002;
+}
