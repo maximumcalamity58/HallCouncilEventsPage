@@ -76,7 +76,7 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Height of the snow layer */
+    height: 80px; /* Height of the snow layer */
     background-image: url('/img/snow.svg');
     background-size: cover;
     background-repeat: no-repeat;
